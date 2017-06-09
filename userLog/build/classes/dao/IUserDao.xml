@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="dao.IUserDao">
+	
+	<select id="findPassword" parameterType="java.lang.String" resultType="java.lang.String">
+	select password from user_reginfo where username =#{username}
+	</select>
+	
+	<insert id="addUser" parameterType="entity.User">
+      insert into user_reginfo(id,username,password,qrpassword,uname,cardtype,cardnum,useremail,userphone,useraddress) values (#{id},#{username},#{password},#{qrpassword},#{uname},#{cardtype},#{cardnum},#{useremail},#{userphone},#{useraddress})
+    </insert>
+	
+</mapper>
